@@ -28,4 +28,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: devopsbooma/infocompass:1.0
+          tags: boomadevops/infocompass:1.0
