@@ -19,4 +19,4 @@ jobs:
       with:
         version: '0.1'
         docker_compose: 'docker-compose.yml' 
-        repo_token: "${{ secrets.GITHUB_TOKEN }}
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
