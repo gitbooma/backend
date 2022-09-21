@@ -26,5 +26,5 @@ services:
       - mongo
     command: ["node", "dpd/production.js"]
     target:
-      - backend
+      - dpd_production
    
