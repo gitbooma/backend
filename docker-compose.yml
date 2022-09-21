@@ -14,6 +14,7 @@ services:
       - ./mongodb/data:/data/db
     target:
       - mongo
+      
   dpd_production:
     build: 
       context: ./
@@ -27,4 +28,3 @@ services:
     command: ["node", "dpd/production.js"]
     target:
       - dpd_production
-   
