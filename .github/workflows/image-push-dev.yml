@@ -1,8 +1,6 @@
 name: Docker Dev
 
 on:
-  push:
-    branches: [ "dev" ]
   pull_request:
     branches: [ "master" ]
 
