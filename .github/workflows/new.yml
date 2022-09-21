@@ -3,7 +3,7 @@ name: new
 on:
   push:
     branches:
-      - 'dev'
+      - 'master'
   pull_request:
     branches: [ "master" ]    
 
@@ -12,16 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-      - uses: actions/checkout@v3
-       
+        uses: actions/checkout@v3
       - name: Login to DockerHub
-      - uses: docker/login-action@v2
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          
+          password: ${{ secrets.DOCKERHUB_TOKEN }}        
       - name: build and publish
-      - uses: gitbooma/publish-work@v1
+        uses: gitbooma/publish-work@v1
         with:
           version: '0.1'
-          docker_compose: 'docker-compose.yml'        
+          docker_compose: 'docker-compose.yml'
