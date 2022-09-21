@@ -7,9 +7,11 @@ services:
         - 27017:27017
       volumes:
         - ./mongodb/data:/data/db
+      target: mongo        
   dpd_production:
     build: 
       context: ./
       dockerfile: Dockerfile
     depends_on:
       - mongo
+      target: dpd_production
