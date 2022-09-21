@@ -1,30 +1,13 @@
 version: '3.7'
-services:
-   # MongoDB
+services:   
   mongo:
-    container_name: mongodb
-    image: bitnami/mongodb
-    ports:
-      - 27017:27017
-    environment:
-      - MONGODB_DATABASE=deployd
-      - MONGODB_ROOT_PASSWORD=mongop
-      - MONGODB_USERNAME=root
-      - MONGODB_PASSWORD=mongop
-    volumes:
-      #- ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-      - ./mongodb/data:/data/db
+    build:
+      image: bitnami/mongodb
+      target: mongo    
   dpd_production:
-    container_name: backend
     build: 
       context: ./
       dockerfile: Dockerfile
-    env_file: 
-      - .env
-    ports:
-      - 2413:2413
+      target: dpd_production
     depends_on:
-      - mongo
-    command: ["node", "dpd/production.js"]
-    
-   
+      - mongo  
