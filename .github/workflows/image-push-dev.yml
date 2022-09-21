@@ -1,0 +1,21 @@
+name: Docker Dev
+
+on:
+  push:
+    branches: [ "dev" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: publish
+      uses: pennsignals/publish_docker-compose@v0.1.0
+      with:
+        version: '0.1'
+        docker_compose: 'docker-compose.yml' 
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
