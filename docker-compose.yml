@@ -1,13 +1,15 @@
-version: '3.7'
+version: "3.8"
 services:   
   mongo:
     build:
       image: bitnami/mongodb
-      target: mongo    
+      ports:
+        - 27017:27017
+      volumes:
+        - ./mongodb/data:/data/db
   dpd_production:
     build: 
       context: ./
       dockerfile: Dockerfile
-      target: dpd_production
     depends_on:
-      - mongo  
+      - mongo
