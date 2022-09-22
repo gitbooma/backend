@@ -21,9 +21,9 @@ jobs:
       - name: check rep
         env: 
            DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-           run: |
-             echo ${{ env.DOCKERHUB_USERNAME } 
-             echo $DOCKERHUB_USERNAME
+        run: |
+           echo ${{ env.DOCKERHUB_USERNAME } 
+           echo $DOCKERHUB_USERNAME
       - name: build and publish
         uses: gitbooma/docker-push@v1.3
         with:
