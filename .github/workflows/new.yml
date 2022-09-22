@@ -26,9 +26,3 @@ jobs:
         run: |
            echo ${{ env.DOCKERHUB_USERNAME }}
            echo "$DOCKERHUB_USERNAME"
-      - name: build and publish
-        uses: gitbooma/docker-push@v1.4.1
-        with:
-          version: 'v1.5'
-          docker_compose: 'docker-compose.yml'
-          docker_user: ${{ env.DOCKERHUB_USERNAME }}
