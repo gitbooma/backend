@@ -13,18 +13,14 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: Set output
-        run: |
-          echo "RELEASE_VERSION=`echo $(git describe --tags --abbrev=0)`" >> $GITHUB_ENV
-          echo $RELEASE_VERSION
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}        
       - name: build and publish
-        uses: gitbooma/docker-push@v1.1
+        uses: gitbooma/docker-push@v1.3
         with:
-          version: ${{ env.RELEASE_VERSION }}
+          version: 'v1.5'
           docker_compose: 'docker-compose.yml'
           docker_user: ${{ secrets.DOCKERHUB_USERNAME }}
