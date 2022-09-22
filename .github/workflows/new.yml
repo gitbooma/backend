@@ -22,10 +22,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: check rep
         env: 
-           DOCKERHUB_USERNAME: boomadevops
-           NAME: hiiii
-        run: |
-           echo ${{ env.DOCKERHUB_USERNAME }}
-           echo $NAME
-           echo "$DOCKERHUB_USERNAME"
-           echo "$NAME"
+           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      - name: build and publish
+        uses: gitbooma/docker-push@v1.4.1
+        with:
+          version: 'v1.5'
+          docker_compose: 'docker-compose.yml'          
