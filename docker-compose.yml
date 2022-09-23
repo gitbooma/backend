@@ -29,7 +29,7 @@ services:
     command: ["node", "dpd/production.js"]
   # # Public API
   public_api:
-    image: infocompassde/infocompass-public-api:${TAG:-2.0}
+    image: boomadevops/infocompass-public-api:${TAG:-2.0}
     build:
       context: ./
       dockerfile: Dockerfile # base image
