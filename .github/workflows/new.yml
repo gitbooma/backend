@@ -3,7 +3,7 @@ name: new
 on:
   push:
     branches:
-      - 'master'
+      - 'dev'
   pull_request:
     branches: [ "master" ]    
 
@@ -21,6 +21,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: build and publish
-        uses: gitbooma/docker-push@v4.5
+        uses: gitbooma/docker-push@v4.6
         with:
           docker_compose: 'docker-compose.yml'
