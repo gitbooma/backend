@@ -3,7 +3,7 @@ name: new
 on:
   push:
     branches:
-      - 'dev'
+      - 'master'
   pull_request:
     branches: [ "master" ]    
 
