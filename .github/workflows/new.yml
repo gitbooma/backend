@@ -7,9 +7,6 @@ on:
   pull_request:
     branches: [ "master" ]    
 
-env: 
-  DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -24,6 +21,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: build and publish
-        uses: gitbooma/docker-push@v4.0
+        uses: gitbooma/docker-push@v4.1
         with:
           docker_compose: 'docker-compose.yml'
