@@ -1,25 +1,26 @@
-name: new
+name: client
 
 on:
   push:
     branches:
       - 'master'
-jobs: 
-  runs-on: ubuntu-latest
-  steps:
-      - name: Load .env file
-        uses: xom9ikk/dotenv@v1.0.2
-        with:
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Load .env file
+       uses: xom9ikk/dotenv@v1.0.2
+       with:
           path: ./
-          mode: 
-      - name: checkout
-        uses: actions/checkout@v3
-      - name: Login to DockerHub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: build and publish
-        uses: gitbooma/docker-push@v4.9
-        with:
-          docker_compose: 'docker-compose.yml'
+          mode: empty
+     - name: checkout
+       uses: actions/checkout@v3
+     - name: Login to DockerHub
+       uses: docker/login-action@v2
+       with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+     - name: build and publish
+       uses: gitbooma/docker-push@v4.9
+       with:
+        docker_compose: 'docker-compose.yml'
