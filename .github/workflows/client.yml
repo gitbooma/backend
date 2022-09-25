@@ -15,12 +15,16 @@ jobs:
        with:
           path: ./
           mode: ''
+     - name: Some other action
+       run: |
+          echo "THEME: ${{ env.THEME }}"
+          echo "github $THEME"
      - name: Login to DockerHub
        uses: docker/login-action@v2
        with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
      - name: build and publish
-       uses: gitbooma/docker-push@v2.1.1
+       uses: gitbooma/docker-push@v2.1.2
        with:
         docker_compose: 'docker-compose.yml'
