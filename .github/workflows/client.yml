@@ -3,7 +3,7 @@ name: client
 on:
   push:
     branches:
-      - 'master'
+      - 'dev'
 jobs:
   docker:
     runs-on: ubuntu-latest
